@@ -39,7 +39,10 @@ export const authOptions: AuthOptions = {
           placeholder: 'password',
         },
       },
-      async authorize(credentials: { email: string; password: string }) {
+      authorize: async (
+        credentials: { email: string; password: string },
+        _req
+      ) => {
         const { password, email } = credentials;
         if (!email || !password) {
           return null;
@@ -77,7 +80,7 @@ export const authOptions: AuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/login',
-    error: '/login',
+    signIn: '/user/signin',
+    error: '/user/signin',
   },
 };

@@ -38,6 +38,7 @@ const SignUp = () => {
   } = useForm<UserData>();
 
   const onSubmit: SubmitHandler<UserData> = async (data) => {
+    console.log({ data });
     try {
       await signup(data);
     } catch (err) {
@@ -97,7 +98,7 @@ const SignUp = () => {
                     marginBottom: '1rem',
                   }}
                 >
-                  {JSON.stringify(error.data)}
+                  {JSON.stringify(error)}
                 </Typography>
               )}
             </div>
@@ -157,7 +158,7 @@ const SignUp = () => {
             </div>
             <div>
               <p>
-                Already registered? <Link href="/user/login">Login</Link>
+                Already registered? <Link href="/user/signin">Login</Link>
               </p>
             </div>
           </form>
