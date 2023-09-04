@@ -38,7 +38,6 @@ const SignUp = () => {
   } = useForm<UserData>();
 
   const onSubmit: SubmitHandler<UserData> = async (data) => {
-    console.log({ data });
     try {
       await signup(data);
     } catch (err) {
@@ -46,7 +45,7 @@ const SignUp = () => {
     }
   };
   if (isSuccess === true) {
-    window.location.replace('/user/login');
+    window.location.replace('/user/signin');
   }
   return (
     <Box className="auth">
@@ -98,7 +97,7 @@ const SignUp = () => {
                     marginBottom: '1rem',
                   }}
                 >
-                  {JSON.stringify(error)}
+                  {JSON.stringify(error.data)}
                 </Typography>
               )}
             </div>
